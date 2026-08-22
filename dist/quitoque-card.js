@@ -2,7 +2,7 @@
  * Quitoque Card for Home Assistant
  * Custom Lovelace card for AuroreVgn/quitoque
  *
- * Version: 0.1.0
+ * Version: 1.3.0
  */
 
 const QUITOQUE_CARD_VERSION = "1.0.0";
