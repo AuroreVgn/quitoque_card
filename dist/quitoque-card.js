@@ -1,4 +1,4 @@
-const QUITOQUE_CARD_VERSION = "1.0.1";
+const QUITOQUE_CARD_VERSION = "1.0.2";
 
 const DEFAULT_CONFIG = {
   title: "Quitoque",
