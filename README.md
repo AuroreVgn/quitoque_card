@@ -13,8 +13,9 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
 > [!IMPORTANT]
 > Cette carte est un projet communautaire non officiel. Elle n'est ni développée, ni maintenue, ni supportée par Quitoque.
 
-<img width="508" height="922" alt="image" src="https://github.com/user-attachments/assets/62e877b4-37a3-488c-acd5-a01e205e8bb5" /> <img width="508" height="922" alt="image" src="https://github.com/user-attachments/assets/d88bfee6-5e58-46ef-85c6-d1cf60f1b8ca" />
+<img width="500" height="498" alt="image" src="https://github.com/user-attachments/assets/9e7babde-59d1-49e3-83d1-77132ff68709" />
 
+<img width="500" height="498" alt="image" src="https://github.com/user-attachments/assets/79da294b-3ebf-4dc3-849a-d046583b9b01" />
 
 
 ## ✨ Fonctionnalités
@@ -50,9 +51,11 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
 - Actions intégrées :
   - Actualiser Quitoque ;
   - Ajouter les recettes au calendrier ;
-  - Générer les PDF.
+  - Générer les PDF ;
+  - Supprimer les PDF et archives générés.
 - Bouton supplémentaire vers un **calendrier externe ou Home Assistant**, avec URL et nom personnalisables.
 - Éditeur graphique utilisant les composants natifs Home Assistant.
+- Sélection native de l'**instance Quitoque** utilisée pour la suppression des PDF lorsque plusieurs comptes sont configurés.
 - Compatibilité avec les thèmes clair et sombre de Home Assistant.
 - Interface bilingue français / anglais pour les principaux éléments de la carte.
 
@@ -177,7 +180,13 @@ calendar_button: button.quitoque_ajouter_les_recettes_au_calendrier
 pdf_button: button.quitoque_generer_et_telecharger_les_pdf
 ```
 
-Si les entités ont été renommées dans Home Assistant, il suffit de les sélectionner dans l'éditeur de la carte.
+Le bouton **Supprimer** n'utilise pas une entité `button.*`. Il appelle directement le service :
+
+```text
+quitoque.cleanup_pdfs
+```
+
+Si plusieurs instances de l'intégration Quitoque sont configurées, l'instance concernée peut être choisie depuis l'éditeur graphique.
 
 ## Modes d'affichage
 
@@ -197,7 +206,7 @@ Exemple :
 ```text
 Quitoque
 
-Actualiser | Calendrier | PDF
+Actualiser | Calendrier | PDF | Supprimer
 
 S0   S+1   S+2   S+3   S+4
 
@@ -252,7 +261,7 @@ Les options disponibles comprennent notamment :
   - Moyenne
   - Grande
 
-### Sélection des entités
+### Sélection des entités et de l'instance Quitoque
 
 L'éditeur permet de sélectionner :
 
@@ -260,13 +269,22 @@ L'éditeur permet de sélectionner :
 - les 5 capteurs de recettes ;
 - le bouton Actualiser ;
 - le bouton Ajouter au calendrier ;
-- le bouton PDF.
+- le bouton PDF ;
+- l'**instance Quitoque utilisée pour la suppression des PDF**.
 
 Les champs utilisent les sélecteurs natifs Home Assistant.
+
+Le choix de l'instance Quitoque est facultatif lorsqu'une seule instance de l'intégration est configurée.
 
 ## Boutons d'action
 
 Les boutons Quitoque sont affichés directement sous le titre de la carte et au-dessus des semaines S0 à S+4.
+
+Ils sont disposés sur une seule ligne :
+
+```text
+Actualiser | Calendrier | PDF | Supprimer
+```
 
 ### Actualiser
 
@@ -315,6 +333,24 @@ Pendant l'action :
 ```text
 Génération PDF…
 ```
+
+### Supprimer
+
+Appelle directement le service :
+
+```text
+quitoque.cleanup_pdfs
+```
+
+et supprime les PDF et archives générés par l'intégration Quitoque.
+
+Pendant l'action :
+
+```text
+Suppression…
+```
+
+Si plusieurs instances Quitoque sont configurées, l'instance cible peut être choisie dans l'éditeur graphique grâce au sélecteur natif Home Assistant.
 
 Les autres boutons sont temporairement désactivés pendant l'exécution d'une action.
 
@@ -427,7 +463,7 @@ La carte adapte automatiquement sa présentation à la largeur disponible.
 Sur petit écran :
 
 - S0 à S+4 deviennent horizontalement défilables ;
-- les actions sont réorganisées ;
+- les 4 actions restent disposées sur une seule ligne ;
 - le résumé de l'en-tête est simplifié ;
 - le bouton calendrier externe utilise principalement son icône ;
 - les images de grande taille sont réduites.
@@ -461,9 +497,15 @@ refresh_button: button.quitoque_actualiser
 calendar_button: button.quitoque_ajouter_les_recettes_au_calendrier
 pdf_button: button.quitoque_generer_et_telecharger_les_pdf
 
+# Facultatif si plusieurs instances Quitoque sont configurées.
+config_entry_id: ""
+
 calendar_url: /calendar
 calendar_url_name: Ouvrir calendrier
 ```
+
+> [!NOTE]
+> Dans l'éditeur graphique, `config_entry_id` n'est pas saisi manuellement : Home Assistant propose directement les instances Quitoque disponibles dans un menu déroulant.
 
 ## Compatibilité
 
@@ -549,6 +591,14 @@ Lors d'un signalement, pensez à indiquer :
 - le comportement attendu ;
 - une capture d'écran si utile ;
 - les erreurs de la console du navigateur lorsqu'elles sont pertinentes.
+
+## Licence
+
+Projet distribué sous licence [MIT](LICENSE).
+
+[releases-shield]: https://img.shields.io/github/v/release/AuroreVgn/quitoque_card?style=flat-square
+[releases]: https://github.com/AuroreVgn/quitoque_card/releases
+[license-shield]: https://img.shields.io/github/license/AuroreVgn/quitoque_card?style=flat-square
 
 ## Licence
 
