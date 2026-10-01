@@ -1,4 +1,4 @@
-const QUITOQUE_CARD_VERSION = "1.0.0";
+const QUITOQUE_CARD_VERSION = "1.0.1";
 
 const DEFAULT_CONFIG = {
   title: "Quitoque",
@@ -26,6 +26,7 @@ const DEFAULT_CONFIG = {
   refresh_button: "button.quitoque_actualiser",
   calendar_button: "button.quitoque_ajouter_les_recettes_au_calendrier",
   pdf_button: "button.quitoque_generer_et_telecharger_les_pdf",
+  config_entry_id: "",
 };
 
 const WEEK_KEYS = [0, 1, 2, 3, 4];
@@ -332,6 +333,29 @@ class QuitoqueCard extends HTMLElement {
       await this._hass.callService("button", "press", { entity_id: entityId });
     } catch (error) {
       console.error("Quitoque Card: button press failed", error);
+    } finally {
+      window.setTimeout(() => {
+        this._busy = false;
+        this._busyAction = null;
+        this._render();
+      }, 900);
+    }
+  }
+
+  async _cleanupPdfs() {
+    if (this._busy || !this._hass) return;
+
+    this._busy = true;
+    this._busyAction = "cleanup";
+    this._render();
+
+    try {
+      const serviceData = {};
+      const configEntryId = String(this._config?.config_entry_id || "").trim();
+      if (configEntryId) serviceData.config_entry_id = configEntryId;
+      await this._hass.callService("quitoque", "cleanup_pdfs", serviceData);
+    } catch (error) {
+      console.error("Quitoque Card: PDF cleanup failed", error);
     } finally {
       window.setTimeout(() => {
         this._busy = false;
@@ -749,7 +773,7 @@ class QuitoqueCard extends HTMLElement {
 
       .actions {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 8px;
         margin: 0 0 14px 0;
       }
@@ -943,7 +967,15 @@ class QuitoqueCard extends HTMLElement {
         }
 
         .actions {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 6px;
+        }
+
+        .action {
+          min-width: 0;
+          padding: 8px 4px;
+          font-size: 11px;
+          gap: 4px;
         }
 
         .recipe {
@@ -1183,6 +1215,7 @@ class QuitoqueCard extends HTMLElement {
       refresh: this._t("Actualisation…", "Refreshing…"),
       calendar: this._t("Synchronisation…", "Syncing…"),
       pdf: this._t("Génération PDF…", "Generating PDF…"),
+      cleanup: this._t("Suppression…", "Deleting…"),
     };
 
     const actionsHtml =
@@ -1203,6 +1236,11 @@ class QuitoqueCard extends HTMLElement {
             <button class="action ${this._busyAction === "pdf" ? "busy" : ""}" data-action="pdf" ${pdfAvailable && !this._busy ? "" : "disabled"}>
               <ha-icon icon="mdi:file-pdf-box"></ha-icon>
               <span>${this._busyAction === "pdf" ? busyLabels.pdf : "PDF"}</span>
+            </button>
+
+            <button class="action ${this._busyAction === "cleanup" ? "busy" : ""}" data-action="cleanup" ${!this._busy ? "" : "disabled"}>
+              <ha-icon icon="mdi:delete-sweep-outline"></ha-icon>
+              <span>${this._busyAction === "cleanup" ? busyLabels.cleanup : this._t("Supprimer", "Delete")}</span>
             </button>
 
           </div>
@@ -1319,9 +1357,13 @@ class QuitoqueCard extends HTMLElement {
     };
 
     this.shadowRoot.querySelectorAll("[data-action]").forEach((button) => {
-      button.addEventListener("click", () =>
-        this._pressButton(actionMap[button.dataset.action], button.dataset.action)
-      );
+      button.addEventListener("click", () => {
+        if (button.dataset.action === "cleanup") {
+          this._cleanupPdfs();
+          return;
+        }
+        this._pressButton(actionMap[button.dataset.action], button.dataset.action);
+      });
     });
   }
 }
@@ -1365,6 +1407,7 @@ class QuitoqueCardEditor extends HTMLElement {
           image_size: "medium",
           calendar_url: "",
           calendar_url_name: "Ouvrir calendrier",
+          config_entry_id: "",
         };
         const value = this._config[key] ?? defaults[key] ?? "";
 
@@ -1597,6 +1640,11 @@ class QuitoqueCardEditor extends HTMLElement {
           ${this._select("refresh_button", "Actualiser", "button")}
           ${this._select("calendar_button", "Ajouter au calendrier", "button")}
           ${this._select("pdf_button", "Générer les PDF", "button")}
+          <label class="ha-selector-field">
+            <span>Instance Quitoque pour la suppression</span>
+            <ha-selector data-selector-key="config_entry_id"></ha-selector>
+            <span class="hint">Facultatif avec un seul compte Quitoque.</span>
+          </label>
           <div class="hint">
             Les boutons indisponibles dans Home Assistant sont automatiquement désactivés dans la carte.
           </div>
@@ -1658,6 +1706,11 @@ class QuitoqueCardEditor extends HTMLElement {
           multiline: false,
         },
       },
+      config_entry_id: {
+        config_entry: {
+          integration: "quitoque",
+        },
+      },
     };
 
     this.shadowRoot
@@ -1672,6 +1725,7 @@ class QuitoqueCardEditor extends HTMLElement {
           image_size: "medium",
           calendar_url: "",
           calendar_url_name: "Ouvrir calendrier",
+          config_entry_id: "",
         };
 
         selector.value =
