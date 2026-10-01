@@ -1213,7 +1213,7 @@ class QuitoqueCard extends HTMLElement {
 
     const busyLabels = {
       refresh: this._t("Actualisation…", "Refreshing…"),
-      calendar: this._t("Synchronisation…", "Syncing…"),
+      calendar: this._t("Synchro…", "Syncing…"),
       pdf: this._t("Génération PDF…", "Generating PDF…"),
       cleanup: this._t("Suppression…", "Deleting…"),
     };
