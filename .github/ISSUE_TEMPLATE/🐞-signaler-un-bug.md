@@ -1,37 +1,34 @@
 ---
-name: "🐞 Signaler un bug"
-about: "Signaler un problème avec Quitoque Card"
+name: "\U0001F41E Signaler un bug"
+about: Signaler un dysfonctionnement de la carte Lovelace Quitoque
 title: "[BUG] - "
-labels: "bug"
+labels: ''
 assignees: AuroreVgn
-type: Bug
 
 ---
 
 ### Version de la carte
-<!-- Indiquer la version installée -->
-0.0.1
+Indiquez la version installée.
 
 ### Version de Home Assistant
-2026.X.X
+Indiquez la version utilisée.
 
-### Navigateur / application
-<!-- Exemple : Safari iOS, Chrome sur ordinateur -->
-
-
-### Avant de publier, j'ai
-- [ ] Mis à jour la carte
-- [ ] Lu le [README](https://github.com/AuroreVgn/quitoque_card/blob/main/README.md)
-- [ ] Vérifié qu'aucune demande similaire n'existe déjà
+### Vérifications préalables
+- [ ] J'ai installé la dernière version disponible.
+- [ ] J'ai consulté le [README](https://github.com/AuroreVgn/quitoque_card/blob/main/README.md).
+- [ ] J'ai recherché les issues similaires.
 
 ### Description du problème
+Décrivez le problème rencontré.
 
 ### Étapes pour reproduire
+1. 
+2. 
+3. 
 
-### Comportement attendu
+### Résultat attendu
 
-### Journaux / captures d'écran
-<!-- Supprimer les mots de passe, jetons et données personnelles -->
-```text
+### Résultat obtenu
 
-```
+### Journaux et captures d'écran
+Collez les journaux pertinents (en masquant les données personnelles), ou joignez des captures d'écran.
