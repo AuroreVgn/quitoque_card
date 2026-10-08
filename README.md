@@ -12,7 +12,7 @@ Retrouvez l'ensemble de mes intégrations et projets Home Assistant sur ma page 
 
 [**🏠 Découvrir mes projets Home Assistant**](https://gentle-suggestion-7c3.notion.site/Mes-projets-Home-Assistant-3eda02eefa8f81a48621c3caeef7fa8e)
 
-## ☕️ Soutenir le projet
+## ☕ Soutenir le projet
 
 Si cette intégration vous est utile et que vous souhaitez soutenir son développement et sa maintenance :
 
@@ -78,7 +78,7 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
 - Compatibilité avec les thèmes clair et sombre de Home Assistant.
 - Interface bilingue français / anglais pour les principaux éléments de la carte.
 
-## Prérequis
+## 📋 Prérequis
 
 Cette carte nécessite l'intégration Quitoque :
 
@@ -102,7 +102,7 @@ recipe_details:
 > [!NOTE]
 > La carte affiche le **temps en cuisine**. Le temps total n'est pas utilisé car Quitoque ne le fournit pas de manière suffisamment homogène.
 
-## Compatibilité
+## 🛡️ Compatibilité
 
 La carte est conçue pour fonctionner avec l'intégration :
 
@@ -112,7 +112,7 @@ Elle dépend des entités et attributs exposés par cette intégration.
 
 Si une version future de l'intégration modifie les noms ou le format des attributs, une mise à jour de la carte peut être nécessaire.
 
-## Installation
+## 📦 Installation
 
 ### Option A — HACS
 
@@ -161,7 +161,7 @@ Module JavaScript
 - `Ctrl+F5` sous Windows/Linux ;
 - `Cmd+Shift+R` sous macOS.
 
-## Configuration minimale
+## ⚙️ Configuration minimale
 
 Une fois la ressource chargée, ajouter une carte manuelle :
 
@@ -173,7 +173,7 @@ La carte utilise par défaut les noms d'entités classiques de l'intégration Qu
 
 Toutes les entités peuvent également être sélectionnées depuis l'éditeur graphique.
 
-## Exemple de configuration complète
+## ⚙️ Exemple de configuration complète
 
 ```yaml
 type: custom:quitoque-card
@@ -212,7 +212,7 @@ calendar_url_name: Ouvrir calendrier
 > [!NOTE]
 > Dans l'éditeur graphique, `config_entry_id` n'est pas saisi manuellement : Home Assistant propose directement les instances Quitoque disponibles dans un menu déroulant.
 
-## Entités utilisées
+## 📊 Entités utilisées
 
 ### Livraisons
 
@@ -256,7 +256,7 @@ quitoque.cleanup_pdfs
 
 Si plusieurs instances de l'intégration Quitoque sont configurées, l'instance concernée peut être choisie depuis l'éditeur graphique.
 
-## Modes d'affichage
+## 🎛️ Modes d'affichage
 
 ### Détaillé
 
@@ -307,7 +307,7 @@ S+1  mercredi 2 sept.   08h00 → 13h00   3 🍽️
 S+2  Aucune livraison                    —
 ```
 
-## Éditeur graphique
+## 🎨 Éditeur graphique
 
 La carte fournit un éditeur Home Assistant permettant de configurer directement les options sans modifier le YAML.
 
@@ -344,7 +344,7 @@ Les champs utilisent les sélecteurs natifs Home Assistant.
 
 Le choix de l'instance Quitoque est facultatif lorsqu'une seule instance de l'intégration est configurée.
 
-## Boutons d'action
+## 🔘 Boutons d'action
 
 Les boutons Quitoque sont affichés directement sous le titre de la carte et au-dessus des semaines S0 à S+4.
 
@@ -422,7 +422,7 @@ Si plusieurs instances Quitoque sont configurées, l'instance cible peut être c
 
 Les autres boutons sont temporairement désactivés pendant l'exécution d'une action.
 
-## Bouton vers un calendrier personnalisé
+## 📅 Bouton vers un calendrier personnalisé
 
 La carte peut également afficher un bouton indépendant permettant d'ouvrir un calendrier ou n'importe quelle URL.
 
@@ -475,7 +475,7 @@ https://calendar.google.com
 
 Sur mobile, le bouton calendrier externe peut être réduit à son icône afin de conserver un en-tête compact.
 
-## Images des recettes
+## 🥕 Images des recettes
 
 La carte utilise :
 
@@ -495,7 +495,7 @@ est affichée à la place.
 
 Les images utilisent le chargement différé (`loading="lazy"`).
 
-## Recettes repliables
+## 🥕 Recettes repliables
 
 En mode détaillé, la liste des recettes peut être ouverte ou fermée.
 
@@ -507,7 +507,7 @@ Replier les recettes par défaut
 
 permet de choisir son état initial.
 
-## Semaines sans livraison
+## 📆 Semaines sans livraison
 
 La carte distingue plusieurs états :
 
@@ -524,7 +524,7 @@ Afficher aussi les semaines sans livraison
 
 est désactivée, seules les semaines disposant d'une box sont conservées dans la navigation, lorsqu'il existe au moins une livraison active.
 
-## Responsive / mobile
+## 📱 Responsive / mobile
 
 La carte adapte automatiquement sa présentation à la largeur disponible.
 
@@ -536,7 +536,7 @@ Sur petit écran :
 - le bouton calendrier externe utilise principalement son icône ;
 - les images de grande taille sont réduites.
 
-## Dépannage
+## 🛠️ Dépannage
 
 ### La carte n'apparaît pas
 
@@ -598,7 +598,7 @@ Chaque recette doit disposer d'un champ :
 image_url:
 ```
 
-## Contributions et problèmes
+## 🤝 Contributions et problèmes
 
 Les retours, corrections et propositions d'amélioration sont les bienvenus via les issues du dépôt de la carte.
 
@@ -611,7 +611,7 @@ Lors d'un signalement, pensez à indiquer :
 - une capture d'écran si utile ;
 - les erreurs de la console du navigateur lorsqu'elles sont pertinentes.
 
-## Licence
+## 📄 Licence
 
 Projet distribué sous licence [MIT](LICENSE).
 
@@ -619,7 +619,7 @@ Projet distribué sous licence [MIT](LICENSE).
 [releases]: https://github.com/AuroreVgn/quitoque_card/releases
 [license-shield]: https://img.shields.io/github/license/AuroreVgn/quitoque_card?style=flat-square
 
-## Licence
+## 📄 Licence
 
 Projet distribué sous licence [MIT](LICENSE).
 
