@@ -6,6 +6,24 @@
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://hacs.xyz/)
 [![Maintainer](https://img.shields.io/badge/Maintainer-AuroreVgn-blue.svg?style=flat-square)](https://github.com/AuroreVgn)
 
+## 🏠 Mes projets Home Assistant
+
+Retrouvez l'ensemble de mes intégrations et projets Home Assistant sur ma page dédiée :
+
+[**🏠 Découvrir mes projets Home Assistant**](https://gentle-suggestion-7c3.notion.site/Mes-projets-Home-Assistant-3eda02eefa8f81a48621c3caeef7fa8e)
+
+## ☕️ Soutenir le projet
+
+Si cette intégration vous est utile et que vous souhaitez soutenir son développement et sa maintenance :
+
+<p>
+  <a href="https://ko-fi.com/aurorevgn">
+    <img src="https://storage.ko-fi.com/cdn/kofi4.png?v=3"
+         alt="Support me on Ko-fi"
+         height="45">
+  </a>
+</p>
+
 ## ⚠️ Important
 Carte Lovelace personnalisée **Home Assistant** conçue pour l'intégration [Quitoque](https://github.com/AuroreVgn/quitoque).
 
@@ -593,18 +611,6 @@ Lors d'un signalement, pensez à indiquer :
 - une capture d'écran si utile ;
 - les erreurs de la console du navigateur lorsqu'elles sont pertinentes.
 
-## ☕️ Soutenir le projet
-
-Si cette intégration vous est utile et que vous souhaitez soutenir son développement et sa maintenance :
-
-<p>
-  <a href="https://ko-fi.com/aurorevgn">
-    <img src="https://storage.ko-fi.com/cdn/kofi4.png?v=3"
-         alt="Support me on Ko-fi"
-         height="45">
-  </a>
-</p>
-
 ## Licence
 
 Projet distribué sous licence [MIT](LICENSE).
@@ -620,9 +626,3 @@ Projet distribué sous licence [MIT](LICENSE).
 [releases-shield]: https://img.shields.io/github/v/release/AuroreVgn/quitoque_card?style=flat-square
 [releases]: https://github.com/AuroreVgn/quitoque_card/releases
 [license-shield]: https://img.shields.io/github/license/AuroreVgn/quitoque_card?style=flat-square
-
-## 🏠 Mes projets Home Assistant
-
-Retrouvez l'ensemble de mes intégrations et projets Home Assistant sur ma page dédiée :
-
-[**🏠 Découvrir mes projets Home Assistant**](https://gentle-suggestion-7c3.notion.site/Mes-projets-Home-Assistant-3eda02eefa8f81a48621c3caeef7fa8e)
