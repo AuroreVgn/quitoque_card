@@ -6,24 +6,6 @@
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://hacs.xyz/)
 [![Maintainer](https://img.shields.io/badge/Maintainer-AuroreVgn-blue.svg?style=flat-square)](https://github.com/AuroreVgn)
 
-## 🏠 Mes projets Home Assistant
-
-Retrouvez l'ensemble de mes intégrations et projets Home Assistant sur ma page dédiée :
-
-[**🏠 Découvrir mes projets Home Assistant**](https://gentle-suggestion-7c3.notion.site/Mes-projets-Home-Assistant-3eda02eefa8f81a48621c3caeef7fa8e)
-
-## ☕️ Soutenir le projet
-
-Si cette intégration vous est utile et que vous souhaitez soutenir son développement et sa maintenance :
-
-<p>
-  <a href="https://ko-fi.com/aurorevgn">
-    <img src="https://storage.ko-fi.com/cdn/kofi4.png?v=3"
-         alt="Support me on Ko-fi"
-         height="45">
-  </a>
-</p>
-
 ## ⚠️ Important
 Carte Lovelace personnalisée **Home Assistant** conçue pour l'intégration [Quitoque](https://github.com/AuroreVgn/quitoque).
 
@@ -102,6 +84,16 @@ recipe_details:
 > [!NOTE]
 > La carte affiche le **temps en cuisine**. Le temps total n'est pas utilisé car Quitoque ne le fournit pas de manière suffisamment homogène.
 
+## Compatibilité
+
+La carte est conçue pour fonctionner avec l'intégration :
+
+[Quitoque pour Home Assistant](https://github.com/AuroreVgn/quitoque)
+
+Elle dépend des entités et attributs exposés par cette intégration.
+
+Si une version future de l'intégration modifie les noms ou le format des attributs, une mise à jour de la carte peut être nécessaire.
+
 ## Installation
 
 ### Option A — HACS
@@ -162,6 +154,45 @@ type: custom:quitoque-card
 La carte utilise par défaut les noms d'entités classiques de l'intégration Quitoque.
 
 Toutes les entités peuvent également être sélectionnées depuis l'éditeur graphique.
+
+## Exemple de configuration complète
+
+```yaml
+type: custom:quitoque-card
+
+title: Quitoque
+display_mode: detailed
+show_empty_weeks: true
+show_actions: true
+recipes_collapsed: false
+show_recipe_images: true
+image_size: medium
+
+delivery_week_0: sensor.quitoque_livraison_cette_semaine
+delivery_week_1: sensor.quitoque_livraison_dans_1_semaine
+delivery_week_2: sensor.quitoque_livraison_dans_2_semaines
+delivery_week_3: sensor.quitoque_livraison_dans_3_semaines
+delivery_week_4: sensor.quitoque_livraison_dans_4_semaines
+
+recipe_count_week_0: sensor.quitoque_nombre_de_recettes_cette_semaine
+recipe_count_week_1: sensor.quitoque_nombre_de_recettes_dans_1_semaine
+recipe_count_week_2: sensor.quitoque_nombre_de_recettes_dans_2_semaines
+recipe_count_week_3: sensor.quitoque_nombre_de_recettes_dans_3_semaines
+recipe_count_week_4: sensor.quitoque_nombre_de_recettes_dans_4_semaines
+
+refresh_button: button.quitoque_actualiser
+calendar_button: button.quitoque_ajouter_les_recettes_au_calendrier
+pdf_button: button.quitoque_generer_et_telecharger_les_pdf
+
+# Facultatif si plusieurs instances Quitoque sont configurées.
+config_entry_id: ""
+
+calendar_url: /calendar
+calendar_url_name: Ouvrir calendrier
+```
+
+> [!NOTE]
+> Dans l'éditeur graphique, `config_entry_id` n'est pas saisi manuellement : Home Assistant propose directement les instances Quitoque disponibles dans un menu déroulant.
 
 ## Entités utilisées
 
@@ -487,55 +518,6 @@ Sur petit écran :
 - le bouton calendrier externe utilise principalement son icône ;
 - les images de grande taille sont réduites.
 
-## Exemple de configuration complète
-
-```yaml
-type: custom:quitoque-card
-
-title: Quitoque
-display_mode: detailed
-show_empty_weeks: true
-show_actions: true
-recipes_collapsed: false
-show_recipe_images: true
-image_size: medium
-
-delivery_week_0: sensor.quitoque_livraison_cette_semaine
-delivery_week_1: sensor.quitoque_livraison_dans_1_semaine
-delivery_week_2: sensor.quitoque_livraison_dans_2_semaines
-delivery_week_3: sensor.quitoque_livraison_dans_3_semaines
-delivery_week_4: sensor.quitoque_livraison_dans_4_semaines
-
-recipe_count_week_0: sensor.quitoque_nombre_de_recettes_cette_semaine
-recipe_count_week_1: sensor.quitoque_nombre_de_recettes_dans_1_semaine
-recipe_count_week_2: sensor.quitoque_nombre_de_recettes_dans_2_semaines
-recipe_count_week_3: sensor.quitoque_nombre_de_recettes_dans_3_semaines
-recipe_count_week_4: sensor.quitoque_nombre_de_recettes_dans_4_semaines
-
-refresh_button: button.quitoque_actualiser
-calendar_button: button.quitoque_ajouter_les_recettes_au_calendrier
-pdf_button: button.quitoque_generer_et_telecharger_les_pdf
-
-# Facultatif si plusieurs instances Quitoque sont configurées.
-config_entry_id: ""
-
-calendar_url: /calendar
-calendar_url_name: Ouvrir calendrier
-```
-
-> [!NOTE]
-> Dans l'éditeur graphique, `config_entry_id` n'est pas saisi manuellement : Home Assistant propose directement les instances Quitoque disponibles dans un menu déroulant.
-
-## Compatibilité
-
-La carte est conçue pour fonctionner avec l'intégration :
-
-[Quitoque pour Home Assistant](https://github.com/AuroreVgn/quitoque)
-
-Elle dépend des entités et attributs exposés par cette intégration.
-
-Si une version future de l'intégration modifie les noms ou le format des attributs, une mise à jour de la carte peut être nécessaire.
-
 ## Dépannage
 
 ### La carte n'apparaît pas
@@ -611,6 +593,18 @@ Lors d'un signalement, pensez à indiquer :
 - une capture d'écran si utile ;
 - les erreurs de la console du navigateur lorsqu'elles sont pertinentes.
 
+## ☕️ Soutenir le projet
+
+Si cette intégration vous est utile et que vous souhaitez soutenir son développement et sa maintenance :
+
+<p>
+  <a href="https://ko-fi.com/aurorevgn">
+    <img src="https://storage.ko-fi.com/cdn/kofi4.png?v=3"
+         alt="Support me on Ko-fi"
+         height="45">
+  </a>
+</p>
+
 ## Licence
 
 Projet distribué sous licence [MIT](LICENSE).
@@ -626,3 +620,9 @@ Projet distribué sous licence [MIT](LICENSE).
 [releases-shield]: https://img.shields.io/github/v/release/AuroreVgn/quitoque_card?style=flat-square
 [releases]: https://github.com/AuroreVgn/quitoque_card/releases
 [license-shield]: https://img.shields.io/github/license/AuroreVgn/quitoque_card?style=flat-square
+
+## 🏠 Mes projets Home Assistant
+
+Retrouvez l'ensemble de mes intégrations et projets Home Assistant sur ma page dédiée :
+
+[**🏠 Découvrir mes projets Home Assistant**](https://gentle-suggestion-7c3.notion.site/Mes-projets-Home-Assistant-3eda02eefa8f81a48621c3caeef7fa8e)
