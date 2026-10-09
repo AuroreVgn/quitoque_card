@@ -1,4 +1,4 @@
-# Quitoque Lovelace Card
+# 🥕 Quitoque Lovelace Card
 
 [![GitHub Release][releases-shield]][releases]
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-4c9a2a?style=flat-square)](LICENSE)
