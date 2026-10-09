@@ -65,9 +65,9 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
   - **Moyenne**
   - **Grande**
 - Actions intégrées :
-  - Actualiser Quitoque ;
-  - Ajouter les recettes au calendrier ;
-  - Générer les PDF ;
+  - Actualiser Quitoque
+  - Ajouter les recettes au calendrier
+  - Générer les PDF
   - Supprimer les PDF et archives générés.
 - Bouton supplémentaire vers un **calendrier externe ou Home Assistant**, avec URL et nom personnalisables.
 - Éditeur graphique utilisant les composants natifs Home Assistant.
