@@ -1,9 +1,10 @@
 # Quitoque Lovelace Card
 
 [![GitHub Release][releases-shield]][releases]
-[![License][license-shield]](LICENSE)
+[![Licence MIT](https://img.shields.io/badge/licence-MIT-4c9a2a?style=flat-square)](LICENSE)
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2026.3%2B-41BDF5.svg?style=flat-square&logo=homeassistant)](https://www.home-assistant.io/)
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://hacs.xyz/)
+[![Lovelace](https://img.shields.io/badge/Lovelace-Card-41BDF5?style=flat-square&logo=homeassistant)](https://www.home-assistant.io/dashboards/)
 [![Maintainers](https://img.shields.io/badge/maintainers-%40AuroreVgn-007ec6?style=flat-square)](https://github.com/AuroreVgn)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=flat-square&logo=ko-fi)](https://ko-fi.com/aurorevgn)
 
