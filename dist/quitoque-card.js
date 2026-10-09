@@ -1411,6 +1411,9 @@ class QuitoqueCardEditor extends HTMLElement {
         };
         const value = this._config[key] ?? defaults[key] ?? "";
 
+        // Let HA dropdowns own their value while editing. Writing it back
+        // during config-changed can leave a previously selected option stuck.
+        if (key === "display_mode" || key === "image_size") return;
         if (!selector.matches(":focus-within") && selector.value !== value) {
           selector.value = value;
         }
