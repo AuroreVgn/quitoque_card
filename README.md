@@ -79,15 +79,15 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
 
 ### Mode détaillé
 
-![Quitoque Card — Mode détaillé](assets/quitoque_card_detail.png)
+<img src="assets/quitoque_card_detail.png" alt="Quitoque Card — Mode détaillé" width="350">
 
 ### Mode compact
 
-![Quitoque Card — Mode compact](assets/quitoque-card-compact.png)
+<img src="assets/quitoque-card-compact.png" alt="Quitoque Card — Mode compact" width="350">
 
 ### Mode planning
 
-![Quitoque Card — Mode planning](assets/quitoque-card-planning.png)
+<img src="assets/quitoque-card-planning.png" alt="Quitoque Card — Mode planning" width="350">
 
 
 ## 📋 Prérequis
