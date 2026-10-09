@@ -1,4 +1,4 @@
-const QUITOQUE_CARD_VERSION = "1.0.3";
+const QUITOQUE_CARD_VERSION = "1.0.4";
 
 const DEFAULT_CONFIG = {
   title: "Quitoque",
@@ -41,6 +41,7 @@ class QuitoqueCard extends HTMLElement {
     this._busy = false;
     this._busyAction = null;
     this._recipesExpanded = null;
+    this._lastHassSnapshot = null;
   }
 
   static getConfigElement() {
@@ -55,11 +56,33 @@ class QuitoqueCard extends HTMLElement {
     this._config = { ...DEFAULT_CONFIG, ...config };
     this._selectedWeek = null;
     this._recipesExpanded = this._config.recipes_collapsed !== true;
+    this._lastHassSnapshot = null;
     this._render();
   }
 
   set hass(hass) {
     this._hass = hass;
+    // Avoid rebuilding the card for unrelated Home Assistant state changes.
+    const entityIds = [
+      ...WEEK_KEYS.flatMap((week) => [
+        this._config?.[`delivery_week_${week}`],
+        this._config?.[`recipe_count_week_${week}`],
+      ]),
+      this._config?.refresh_button,
+      this._config?.calendar_button,
+      this._config?.pdf_button,
+    ];
+    const snapshot = [
+      hass.locale?.language,
+      hass.language,
+      hass.themes?.theme,
+      hass.themes?.darkMode,
+      ...entityIds.map((id) => (id ? hass.states?.[id] : undefined)),
+    ];
+    const previous = this._lastHassSnapshot;
+    if (previous && previous.length === snapshot.length &&
+        snapshot.every((value, index) => value === previous[index])) return;
+    this._lastHassSnapshot = snapshot;
     this._render();
   }
 
@@ -1246,6 +1269,14 @@ class QuitoqueCard extends HTMLElement {
           </div>
         `;
 
+    // Preserve already loaded images when a relevant entity does change.
+    const previousImages = new Map();
+    this.shadowRoot.querySelectorAll("img.recipe-image").forEach((img) => {
+      const url = img.getAttribute("src");
+      if (!previousImages.has(url)) previousImages.set(url, []);
+      previousImages.get(url).push(img);
+    });
+
     this.shadowRoot.innerHTML = `
       <style>${this._styles()}</style>
       <ha-card>
@@ -1334,6 +1365,14 @@ class QuitoqueCard extends HTMLElement {
         </div>
       </ha-card>
     `;
+
+    this.shadowRoot.querySelectorAll("img.recipe-image").forEach((img) => {
+      const matches = previousImages.get(img.getAttribute("src"));
+      if (!matches?.length) return;
+      const existing = matches.shift();
+      existing.alt = img.alt;
+      img.replaceWith(existing);
+    });
 
     this.shadowRoot.querySelectorAll(".week").forEach((button) => {
       button.addEventListener("click", () => {
