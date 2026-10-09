@@ -48,10 +48,10 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
 - Affichage du nombre total de box et de recettes prévues.
 - Indicateur visuel **BOX ACTIVE**.
 - Affichage des recettes avec :
-  - image ;
-  - nom ;
-  - temps en cuisine ;
-  - nombre de portions.
+  - image
+  - nom
+  - temps en cuisine
+  - nombre de portions
 - Repli/dépli des recettes.
 - Affichage possible des semaines sans livraison.
 - Vue adaptée aux écrans mobiles.
