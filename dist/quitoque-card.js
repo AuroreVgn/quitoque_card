@@ -1,4 +1,4 @@
-const QUITOQUE_CARD_VERSION = "1.0.2";
+const QUITOQUE_CARD_VERSION = "1.0.4";
 
 const DEFAULT_CONFIG = {
   title: "Quitoque",
@@ -1411,12 +1411,10 @@ class QuitoqueCardEditor extends HTMLElement {
         };
         const value = this._config[key] ?? defaults[key] ?? "";
 
-        // Let HA dropdowns own their value while editing. Writing it back
-        // during config-changed can leave a previously selected option stuck.
-        if (key === "display_mode" || key === "image_size") return;
-        if (!selector.matches(":focus-within") && selector.value !== value) {
-          selector.value = value;
-        }
+        // The HA dropdown remains mounted across config changes. Its value
+        // is updated on value-changed, so do not reset an open dropdown.
+        if (selector.matches(":focus-within")) return;
+        if (selector.value !== value) selector.value = value;
       });
   }
 
@@ -1745,6 +1743,13 @@ class QuitoqueCardEditor extends HTMLElement {
             ...this._config,
             [key]: value,
           };
+
+          // Keep the HA selector's controlled value in sync with the new
+          // configuration before Home Assistant processes config-changed.
+          // In particular, this allows selecting a previous option again.
+          if (key === "display_mode" || key === "image_size") {
+            selector.value = value;
+          }
           this._emit();
         });
       });
