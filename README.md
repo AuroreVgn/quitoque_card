@@ -623,6 +623,3 @@ Projet distribué sous licence [MIT](LICENSE).
 
 Projet distribué sous licence [MIT](LICENSE).
 
-[releases-shield]: https://img.shields.io/github/v/release/AuroreVgn/quitoque_card?style=flat-square
-[releases]: https://github.com/AuroreVgn/quitoque_card/releases
-[license-shield]: https://img.shields.io/github/license/AuroreVgn/quitoque_card?style=flat-square
