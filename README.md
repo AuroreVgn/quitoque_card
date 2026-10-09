@@ -34,11 +34,6 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
 > [!IMPORTANT]
 > Cette carte est un projet communautaire non officiel. Elle n'est ni développée, ni maintenue, ni supportée par Quitoque.
 
-<img width="500" height="498" alt="image" src="https://github.com/user-attachments/assets/9e7babde-59d1-49e3-83d1-77132ff68709" />
-
-<img width="500" height="498" alt="image" src="https://github.com/user-attachments/assets/79da294b-3ebf-4dc3-849a-d046583b9b01" />
-
-
 ## ✨ Fonctionnalités
 
 - Navigation entre les semaines **S0 à S+4**.
