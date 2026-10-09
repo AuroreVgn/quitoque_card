@@ -80,6 +80,9 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
 - Compatibilité avec les thèmes clair et sombre de Home Assistant.
 - Interface bilingue français / anglais pour les principaux éléments de la carte.
 
+## 📸Screenshots
+
+
 ## 📋 Prérequis
 
 Cette carte nécessite l'intégration Quitoque :
