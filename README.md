@@ -507,6 +507,8 @@ est affichée à la place.
 
 Les images utilisent le chargement différé (`loading="lazy"`).
 
+Les images déjà chargées sont réutilisées lors des mises à jour, afin de limiter le clignotement sur Safari iOS. Les changements d’état sans rapport avec Quitoque ne reconstruisent plus la carte.
+
 ## 🥕 Recettes repliables
 
 En mode détaillé, la liste des recettes peut être ouverte ou fermée.
