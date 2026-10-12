@@ -75,19 +75,11 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
 - Compatibilité avec les thèmes clair et sombre de Home Assistant.
 - Interface bilingue français / anglais pour les principaux éléments de la carte.
 
-## 📸 Screenshots
+## 📸 Aperçus
 
-### Mode détaillé
-
-<img src="assets/quitoque_card_detail.png" alt="Quitoque Card — Mode détaillé" width="350">
-
-### Mode compact
-
-<img src="assets/quitoque-card-compact.png" alt="Quitoque Card — Mode compact" width="350">
-
-### Mode planning
-
-<img src="assets/quitoque-card-planning.png" alt="Quitoque Card — Mode planning" width="350">
+| Mode détaillé | Mode compact | Mode planning |
+| :---: | :---: | :---: |
+| <img src="assets/quitoque_card_detail.png" alt="Quitoque Card — mode détaillé" width="280"> | <img src="assets/quitoque-card-compact.png" alt="Quitoque Card — mode compact" width="280"> | <img src="assets/quitoque-card-planning.png" alt="Quitoque Card — mode planning" width="280"> |
 
 
 ## 📋 Prérequis
