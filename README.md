@@ -28,27 +28,29 @@ Si cette intégration vous est utile et que vous souhaitez soutenir son dévelop
 
 ## 📑 Sommaire
 
-- [⚠️ Important](#-important)
-- [✨ Fonctionnalités](#-fonctionnalités)
-- [📸 Aperçus](#-aperçus)
-- [📋 Prérequis](#-prérequis)
-- [🛡️ Compatibilité](#-compatibilité)
-- [📦 Installation](#-installation)
-- [⚙️ Configuration minimale](#-configuration-minimale)
-- [⚙️ Exemple de configuration complète](#-exemple-de-configuration-complète)
-- [📊 Entités utilisées](#-entités-utilisées)
-- [🎛️ Modes d'affichage](#-modes-daffichage)
-- [🎨 Éditeur graphique](#-éditeur-graphique)
-- [🔘 Boutons d'action](#-boutons-daction)
-- [📅 Bouton vers un calendrier personnalisé](#-bouton-vers-un-calendrier-personnalisé)
-- [🥕 Images des recettes](#-images-des-recettes)
-- [🥕 Recettes repliables](#-recettes-repliables)
-- [📆 Semaines sans livraison](#-semaines-sans-livraison)
-- [📱 Responsive / mobile](#-responsive--mobile)
-- [🛠️ Dépannage](#-dépannage)
-- [🤝 Contributions et problèmes](#-contributions-et-problèmes)
-- [📄 Licence](#-licence)
-- [📄 Licence](#-licence)
+- [⚠️ Important](#toc-section-1)
+- [✨ Fonctionnalités](#toc-section-2)
+- [📸 Aperçus](#toc-section-3)
+- [📋 Prérequis](#toc-section-4)
+- [🛡️ Compatibilité](#toc-section-5)
+- [📦 Installation](#toc-section-6)
+- [⚙️ Configuration minimale](#toc-section-7)
+- [⚙️ Exemple de configuration complète](#toc-section-8)
+- [📊 Entités utilisées](#toc-section-9)
+- [🎛️ Modes d'affichage](#toc-section-10)
+- [🎨 Éditeur graphique](#toc-section-11)
+- [🔘 Boutons d'action](#toc-section-12)
+- [📅 Bouton vers un calendrier personnalisé](#toc-section-13)
+- [🥕 Images des recettes](#toc-section-14)
+- [🥕 Recettes repliables](#toc-section-15)
+- [📆 Semaines sans livraison](#toc-section-16)
+- [📱 Responsive / mobile](#toc-section-17)
+- [🛠️ Dépannage](#toc-section-18)
+- [🤝 Contributions et problèmes](#toc-section-19)
+- [📄 Licence](#toc-section-20)
+- [📄 Licence](#toc-section-21)
+
+<a name="toc-section-1"></a>
 
 ## ⚠️ Important
 Carte Lovelace personnalisée **Home Assistant** conçue pour l'intégration [Quitoque](https://github.com/AuroreVgn/quitoque).
@@ -57,6 +59,8 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
 
 > [!IMPORTANT]
 > Cette carte est un projet communautaire non officiel. Elle n'est ni développée, ni maintenue, ni supportée par Quitoque.
+
+<a name="toc-section-2"></a>
 
 ## ✨ Fonctionnalités
 
@@ -99,12 +103,16 @@ Elle permet d'afficher les livraisons et recettes Quitoque des semaines **S0 à 
 - Compatibilité avec les thèmes clair et sombre de Home Assistant.
 - Interface bilingue français / anglais pour les principaux éléments de la carte.
 
+<a name="toc-section-3"></a>
+
 ## 📸 Aperçus
 
 | Mode détaillé | Mode compact | Mode planning |
 | :---: | :---: | :---: |
 | <img src="assets/quitoque_card_detail.png" alt="Quitoque Card — mode détaillé" width="280"> | <img src="assets/quitoque-card-compact.png" alt="Quitoque Card — mode compact" width="280"> | <img src="assets/quitoque-card-planning.png" alt="Quitoque Card — mode planning" width="280"> |
 
+
+<a name="toc-section-4"></a>
 
 ## 📋 Prérequis
 
@@ -130,6 +138,8 @@ recipe_details:
 > [!NOTE]
 > La carte affiche le **temps en cuisine**. Le temps total n'est pas utilisé car Quitoque ne le fournit pas de manière suffisamment homogène.
 
+<a name="toc-section-5"></a>
+
 ## 🛡️ Compatibilité
 
 La carte est conçue pour fonctionner avec l'intégration :
@@ -139,6 +149,8 @@ La carte est conçue pour fonctionner avec l'intégration :
 Elle dépend des entités et attributs exposés par cette intégration.
 
 Si une version future de l'intégration modifie les noms ou le format des attributs, une mise à jour de la carte peut être nécessaire.
+
+<a name="toc-section-6"></a>
 
 ## 📦 Installation
 
@@ -189,6 +201,8 @@ Module JavaScript
 - `Ctrl+F5` sous Windows/Linux ;
 - `Cmd+Shift+R` sous macOS.
 
+<a name="toc-section-7"></a>
+
 ## ⚙️ Configuration minimale
 
 Une fois la ressource chargée, ajouter une carte manuelle :
@@ -200,6 +214,8 @@ type: custom:quitoque-card
 La carte utilise par défaut les noms d'entités classiques de l'intégration Quitoque.
 
 Toutes les entités peuvent également être sélectionnées depuis l'éditeur graphique.
+
+<a name="toc-section-8"></a>
 
 ## ⚙️ Exemple de configuration complète
 
@@ -239,6 +255,8 @@ calendar_url_name: Ouvrir calendrier
 
 > [!NOTE]
 > Dans l'éditeur graphique, `config_entry_id` n'est pas saisi manuellement : Home Assistant propose directement les instances Quitoque disponibles dans un menu déroulant.
+
+<a name="toc-section-9"></a>
 
 ## 📊 Entités utilisées
 
@@ -283,6 +301,8 @@ quitoque.cleanup_pdfs
 ```
 
 Si plusieurs instances de l'intégration Quitoque sont configurées, l'instance concernée peut être choisie depuis l'éditeur graphique.
+
+<a name="toc-section-10"></a>
 
 ## 🎛️ Modes d'affichage
 
@@ -335,6 +355,8 @@ S+1  mercredi 2 sept.   08h00 → 13h00   3 🍽️
 S+2  Aucune livraison                    —
 ```
 
+<a name="toc-section-11"></a>
+
 ## 🎨 Éditeur graphique
 
 La carte fournit un éditeur Home Assistant permettant de configurer directement les options sans modifier le YAML.
@@ -371,6 +393,8 @@ L'éditeur permet de sélectionner :
 Les champs utilisent les sélecteurs natifs Home Assistant.
 
 Le choix de l'instance Quitoque est facultatif lorsqu'une seule instance de l'intégration est configurée.
+
+<a name="toc-section-12"></a>
 
 ## 🔘 Boutons d'action
 
@@ -450,6 +474,8 @@ Si plusieurs instances Quitoque sont configurées, l'instance cible peut être c
 
 Les autres boutons sont temporairement désactivés pendant l'exécution d'une action.
 
+<a name="toc-section-13"></a>
+
 ## 📅 Bouton vers un calendrier personnalisé
 
 La carte peut également afficher un bouton indépendant permettant d'ouvrir un calendrier ou n'importe quelle URL.
@@ -503,6 +529,8 @@ https://calendar.google.com
 
 Sur mobile, le bouton calendrier externe peut être réduit à son icône afin de conserver un en-tête compact.
 
+<a name="toc-section-14"></a>
+
 ## 🥕 Images des recettes
 
 La carte utilise :
@@ -525,6 +553,8 @@ Les images utilisent le chargement différé (`loading="lazy"`).
 
 Les images déjà chargées sont réutilisées lors des mises à jour, afin de limiter le clignotement sur Safari iOS. Les changements d’état sans rapport avec Quitoque ne reconstruisent plus la carte.
 
+<a name="toc-section-15"></a>
+
 ## 🥕 Recettes repliables
 
 En mode détaillé, la liste des recettes peut être ouverte ou fermée.
@@ -536,6 +566,8 @@ Replier les recettes par défaut
 ```
 
 permet de choisir son état initial.
+
+<a name="toc-section-16"></a>
 
 ## 📆 Semaines sans livraison
 
@@ -554,6 +586,8 @@ Afficher aussi les semaines sans livraison
 
 est désactivée, seules les semaines disposant d'une box sont conservées dans la navigation, lorsqu'il existe au moins une livraison active.
 
+<a name="toc-section-17"></a>
+
 ## 📱 Responsive / mobile
 
 La carte adapte automatiquement sa présentation à la largeur disponible.
@@ -565,6 +599,8 @@ Sur petit écran :
 - le résumé de l'en-tête est simplifié ;
 - le bouton calendrier externe utilise principalement son icône ;
 - les images de grande taille sont réduites.
+
+<a name="toc-section-18"></a>
 
 ## 🛠️ Dépannage
 
@@ -628,6 +664,8 @@ Chaque recette doit disposer d'un champ :
 image_url:
 ```
 
+<a name="toc-section-19"></a>
+
 ## 🤝 Contributions et problèmes
 
 Les retours, corrections et propositions d'amélioration sont les bienvenus via les issues du dépôt de la carte.
@@ -640,6 +678,10 @@ Lors d'un signalement, pensez à indiquer :
 - le comportement attendu ;
 - une capture d'écran si utile ;
 - les erreurs de la console du navigateur lorsqu'elles sont pertinentes.
+
+<a name="toc-section-20"></a>
+
+<a name="toc-section-21"></a>
 
 ## 📄 Licence
 
