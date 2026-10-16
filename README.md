@@ -26,6 +26,30 @@ Si cette intégration vous est utile et que vous souhaitez soutenir son dévelop
   </a>
 </p>
 
+## 📑 Sommaire
+
+- [⚠️ Important](#-important)
+- [✨ Fonctionnalités](#-fonctionnalités)
+- [📸 Aperçus](#-aperçus)
+- [📋 Prérequis](#-prérequis)
+- [🛡️ Compatibilité](#-compatibilité)
+- [📦 Installation](#-installation)
+- [⚙️ Configuration minimale](#-configuration-minimale)
+- [⚙️ Exemple de configuration complète](#-exemple-de-configuration-complète)
+- [📊 Entités utilisées](#-entités-utilisées)
+- [🎛️ Modes d'affichage](#-modes-daffichage)
+- [🎨 Éditeur graphique](#-éditeur-graphique)
+- [🔘 Boutons d'action](#-boutons-daction)
+- [📅 Bouton vers un calendrier personnalisé](#-bouton-vers-un-calendrier-personnalisé)
+- [🥕 Images des recettes](#-images-des-recettes)
+- [🥕 Recettes repliables](#-recettes-repliables)
+- [📆 Semaines sans livraison](#-semaines-sans-livraison)
+- [📱 Responsive / mobile](#-responsive--mobile)
+- [🛠️ Dépannage](#-dépannage)
+- [🤝 Contributions et problèmes](#-contributions-et-problèmes)
+- [📄 Licence](#-licence)
+- [📄 Licence](#-licence)
+
 ## ⚠️ Important
 Carte Lovelace personnalisée **Home Assistant** conçue pour l'intégration [Quitoque](https://github.com/AuroreVgn/quitoque).
 
