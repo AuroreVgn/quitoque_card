@@ -2,5 +2,6 @@
   "name": "Quitoque Card",
   "filename": "quitoque-card.js",
   "content_in_root": false,
-  "render_readme": true
+  "render_readme": true,
+  "country": "FR"
 }
