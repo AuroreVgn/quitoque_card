@@ -157,7 +157,6 @@ Si une version future de l'intégration modifie les noms ou le format des attrib
 > [!NOTE]
 > **Marketplace / HACS — Home Assistant 2026.11+ :** ouvrez **Paramètres → Marketplace** (intégré à Home Assistant, sans installation séparée de HACS). Recherchez ce projet ou ajoutez `https://github.com/AuroreVgn/quitoque_card` comme **dépôt personnalisé** s'il n'est pas encore référencé. Sur Home Assistant **2026.10 et versions antérieures**, utilisez HACS comme indiqué ci-dessous. Les liens `hacs_repository` existants restent compatibles. Après installation, ajoutez la carte à votre tableau de bord. Ce projet reste communautaire et non officiel.
 >
-> **EN:** On Home Assistant **2026.11+**, open **Settings → Marketplace** (built in; no separate HACS installation). Search for this project or add the GitHub URL above as a **custom repository**. On **2026.10 or earlier**, continue using HACS. Existing `hacs_repository` links work in both. This is a community project, not an official Home Assistant integration.
 
 
 ### Option A — HACS
